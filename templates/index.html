@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                ),
+                url("https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+
+            border: 2px solid #dbeafe;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn {
+            width: 100%;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 25px;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            background: #eff6ff;
+
+            color: #1e40af;
+
+            font-size: 22px;
+
+            font-weight: 700;
+        }
+
+        @media(max-width:700px) {
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>📚 Student Performance Predictor</h1>
+
+        <p class="subtitle">
+            Predict Exam Performance Using Multiple Linear Regression
+        </p>
+
+        <form action="/predict" method="POST">
+
+            <div class="form-group">
+                <label>Hours Studied</label>
+                <input type="number" step="any" name="hours_studied" required>
+            </div>
+
+            <div class="form-group">
+                <label>Previous Scores</label>
+                <input type="number" step="any" name="previous_scores" required>
+            </div>
+
+            <div class="form-group">
+                <label>Extracurricular Activities</label>
+                <select name="extracurricular" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Sleep Hours</label>
+                <input type="number" step="any" name="sleep_hours" required>
+            </div>
+
+            <div class="form-group">
+                <label>Sample Papers Practiced</label>
+                <input type="number" step="any" name="sample_papers" required>
+            </div>
+
+            <button type="submit" class="btn">
+                Predict Performance
+            </button>
+
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
