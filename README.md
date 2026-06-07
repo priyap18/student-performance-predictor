@@ -74,7 +74,7 @@ The model predicts the student's **Performance Index / Exam Score** based on the
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/student-performance-predictor.git
+git clone https://github.com/priyap18/student-performance-predictor.git
 ```
 
 ### Move to Project Folder
@@ -154,9 +154,11 @@ Shiva Priya
 
 Aspiring Data Analyst | Machine Learning Enthusiast
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/priyap18
 
-LinkedIn: https://linkedin.com/in/yourprofile
+LinkedIn: https://linkedin.com/in/www.linkedin.com/in/shiva-priya-pokala
+
+
 
 ---
 
